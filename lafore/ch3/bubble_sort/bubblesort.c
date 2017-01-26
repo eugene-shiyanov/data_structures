@@ -19,4 +19,7 @@ int main(void) {
     array_bub_display(arr);
     array_bub_bubble_sort(arr);
     array_bub_display(arr);
+
+    array_bub_destroy(arr);
+    return 0;
 }

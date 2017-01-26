@@ -31,7 +31,6 @@ void array_bub_display(const ArrayBub * array_bub) {
 void array_bub_destroy(ArrayBub * array_bub) {
     free(array_bub->a);
     free(array_bub);
-    array_bub = NULL;
 }
 
 void array_bub_bubble_sort(const ArrayBub * array_bub) {

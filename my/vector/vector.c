@@ -1,4 +1,5 @@
 #include <string.h>
+#include <stdio.h>
 #include "vector.h"
 
 const int INIT_SIZE = 10;
@@ -73,6 +74,23 @@ void * vector_remove(Vector * vector, int index) {
 
     vector->elems_count--;
     return element;
+}
+
+void vector_set_print_element_function(Vector * vector, void (*print_element) (void *)) {
+    vector->print_element = print_element;
+}
+
+void vector_print(const Vector * vector) {
+    printf("Vector: [");
+
+    for (int i = 0; i < vector->elems_count; i++) {
+        if (i != 0)
+            printf(", ");
+
+        vector->print_element(vector_get(vector, i));        
+    }
+    
+    puts("]");
 }
 
 static bool expand_array_if_needed(Vector * vector) {

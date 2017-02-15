@@ -25,6 +25,11 @@ int main(void) {
     vector_print(vector);
     printf("last removed: %d\n", *ptr);
     free(ptr);
+    ptr = (int*)vector_get(vector, 10);
+    printf("tenth el was %d\n", *ptr);
+    *ptr = 55;
+    puts("arter set to 55:");
+    vector_print(vector);
     vector_destroy(vector);
     return 0;
 }
